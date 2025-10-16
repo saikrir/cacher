@@ -103,7 +103,7 @@ func (c *Cache) evictExpired() {
 }
 
 func (c *Cache) ttlEnforcer(ctx context.Context) {
-	timer := time.NewTimer(c.ttl)
+	timer := time.NewTicker(c.ttl)
 	for {
 		select {
 		case <-timer.C:
